@@ -1,0 +1,16 @@
+create table solicitus(
+    id_solicitud number(10),
+    estado varchar2(1) CHECK ((estado = 'F') OR (estado = 'T'))NOT NULL,
+    id_solicitante number(10),
+    id_asistente number(10)
+);
+alter table solicitus ADD CONSTRAINT solicitus_PK PRIMARY KEY (id_solicitud);
+
+insert into solicitus values (1, 'F',1,2);
+insert into solicitus values (2, 'T',2,1);
+insert into solicitus values (3, 'F',2,1);
+insert into solicitus values (4, 'T',2,1);
+insert into solicitus values (5, 'T',2,1);
+
+
+commit;
